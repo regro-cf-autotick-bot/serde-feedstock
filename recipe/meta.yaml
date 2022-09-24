@@ -1,18 +1,18 @@
 {% set name = "serde" %}
-{% set version = "0.8.1" %}
+{% set version = "0.9.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://github.com/rossmacarthur/serde/archive/{{ version }}.tar.gz"
-  sha256: 738dcd50ef7b28f5be7bfc3e49762aba1d3d3ae71786375ce74163ff42f93c6b
+  url: https://github.com/rossmacarthur/serde/archive/{{ version }}.tar.gz
+  sha256: 91571c55604c34b076c3002028cfe805ffb47328e7ad15d5a5e812605175c8d2
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -28,12 +28,12 @@ test:
     - serde
 
 about:
-  home: "https://github.com/rossmacarthur/serde"
+  home: https://github.com/rossmacarthur/serde
   license: MIT OR Apache2.0
-  license_file: 
+  license_file:
     - LICENSE-MIT
     - LICENSE-APACHE
-  summary: "Define, serialize, deserialize, and validate Python data structures."
+  summary: Define, serialize, deserialize, and validate Python data structures.
   doc_url: https://rossmacarthur.github.io/serde/
   dev_url: https://github.com/rossmacarthur/serde
 

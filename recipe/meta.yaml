@@ -10,20 +10,22 @@ source:
   sha256: 738dcd50ef7b28f5be7bfc3e49762aba1d3d3ae71786375ce74163ff42f93c6b
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - isodate >=0.6
     - six >=1.13.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - serde
 
